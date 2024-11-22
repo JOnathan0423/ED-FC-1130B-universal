@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ED FC-1130B Универсал Тооллогын Симуляци</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>ED FC-1130B Универсал Тооллогын Симуляци</h1>
+
+        <!-- Олон мөртэй дижитал дэлгэц -->
+        <div class="display">
+            <div class="row">
+                <h2>Давтамж: <span id="frequency-display">000.000 MHz</span></h2>
+                <h3 id="unit">MHz</h3>
+            </div>
+            <div class="row">
+                <h4>Период: <span id="period-display">0.000 ns</span></h4>
+            </div>
+            <div class="row">
+                <h4>Trigger Статус: <span id="trigger-status">Идэвхгүй</span></h4>
+            </div>
+        </div>
+
+        <!-- Оруулах суваг тохиргоо -->
+        <div class="input-config">
+            <label for="input-type">Оруулах төрөл:</label>
+            <select id="input-type">
+                <option value="single-ended">Сингл-эндед</option>
+                <option value="differential">Түрхэлтийн</option>
+            </select>
+            <br>
+            <label for="input-coupling">Холболт:</label>
+            <select id="input-coupling">
+                <option value="ac">AC</option>
+                <option value="dc">DC</option>
+                <option value="gnd">GND</option>
+            </select>
+            <br>
+            <label for="impedance">Импеданс:</label>
+            <select id="impedance">
+                <option value="50">50 ом</option>
+                <option value="1k">1к ом</option>
+            </select>
+        </div>
+
+        <!-- Trigger горим ба түвшингийн тохиргоо -->
+        <div class="trigger-settings">
+            <label for="trigger-mode">Trigger горим:</label>
+            <select id="trigger-mode">
+                <option value="auto">Авто</option>
+                <option value="single">Нэг удаа</option>
+                <option value="normal">Энгийн</option>
+            </select>
+            <br>
+            <label for="trigger-level">Trigger түвшин:</label>
+            <input type="range" id="trigger-level" min="0" max="5" step="0.1" value="2.5">
+            <span id="trigger-level-value">2.5V</span>
+        </div>
+
+        <!-- Давтамжийн хүрээ тохиргоо -->
+        <div class="settings">
+            <label for="frequency-range">Давтамжийн хүрээ (MHz):</label>
+            <div id="frequency-knob">
+                <input type="range" id="frequency-range" min="1" max="1300" step="0.1" value="1300">
+                <span id="knob-value">1300 MHz</span>
+            </div>
+        </div>
+
+        <!-- Хэмжих, Сэргээх товчлуурууд -->
+        <div class="controls">
+            <button id="measure-btn">Хэмжих</button>
+            <button id="reset-btn">Сэргээх</button>
+        </div>
+
+        <!-- Осциллографийн сигналын визуализаци -->
+        <div class="signal-visualizer">
+            <h4>Сигналын Визуализаци</h4>
+            <div id="oscilloscope"></div>
+        </div>
+
+        <!-- Үйлдлүүдийг удирдах JavaScript -->
+        <script src="script.js"></script>
+    </div>
+</body>
+</html>
